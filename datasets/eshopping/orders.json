@@ -1,0 +1,355 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Orders",
+    "description": "Service for processing orders",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    },
+    "version": ""
+  },
+  "servers": [
+    {
+      "url": "http://orders/"
+    }
+  ],
+  "paths": {
+    "/orders": {
+      "get": {
+        "description": "Get orders",
+        "operationId": "/orders GET",
+        "responses": {
+          "200": {
+            "description": "Returns orders",
+            "content": {
+              "application/hal+json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdersList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create an order",
+        "operationId": "/orders POST",
+        "responses": {
+          "201": {
+            "description": "Returns cart",
+            "content": {
+              "application/hal+json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Order": {
+        "required": [
+          "address",
+          "card",
+          "customer",
+          "customerId",
+          "date",
+          "id",
+          "items",
+          "shipment",
+          "total"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "customer": {
+            "required": [
+              "addresses",
+              "cards",
+              "firstName",
+              "id",
+              "lastName",
+              "username"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "addresses": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "city",
+                    "country",
+                    "id",
+                    "number",
+                    "postcode",
+                    "street"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "number": {
+                      "type": "string"
+                    },
+                    "street": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "postcode": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "cards": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "ccv",
+                    "expires",
+                    "id",
+                    "longNum"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "longNum": {
+                      "type": "string"
+                    },
+                    "expires": {
+                      "type": "string"
+                    },
+                    "ccv": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "address": {
+            "required": [
+              "city",
+              "country",
+              "id",
+              "number",
+              "postcode",
+              "street"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "number": {
+                "type": "string"
+              },
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "postcode": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              }
+            }
+          },
+          "card": {
+            "required": [
+              "ccv",
+              "expires",
+              "id",
+              "longNum"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "longNum": {
+                "type": "string"
+              },
+              "expires": {
+                "type": "string"
+              },
+              "ccv": {
+                "type": "string"
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "itemId",
+                "quantity",
+                "unitPrice"
+              ],
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "itemId": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer"
+                },
+                "unitPrice": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "shipment": {
+            "required": [
+              "id",
+              "name"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "date": {
+            "type": "string"
+          },
+          "total": {
+            "type": "number"
+          }
+        }
+      },
+      "OrdersList": {
+        "required": [
+          "_embedded",
+          "_links",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "required": [
+              "customerOrders"
+            ],
+            "type": "object",
+            "properties": {
+              "customerOrders": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "_links": {
+            "required": [
+              "profile",
+              "search",
+              "self"
+            ],
+            "type": "object",
+            "properties": {
+              "self": {
+                "required": [
+                  "href"
+                ],
+                "type": "object",
+                "properties": {
+                  "href": {
+                    "type": "string"
+                  }
+                }
+              },
+              "profile": {
+                "required": [
+                  "href"
+                ],
+                "type": "object",
+                "properties": {
+                  "href": {
+                    "type": "string"
+                  }
+                }
+              },
+              "search": {
+                "required": [
+                  "href"
+                ],
+                "type": "object",
+                "properties": {
+                  "href": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "page": {
+            "required": [
+              "number",
+              "size",
+              "totalElements",
+              "totalPages"
+            ],
+            "type": "object",
+            "properties": {
+              "size": {
+                "type": "integer"
+              },
+              "totalElements": {
+                "type": "integer"
+              },
+              "totalPages": {
+                "type": "integer"
+              },
+              "number": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

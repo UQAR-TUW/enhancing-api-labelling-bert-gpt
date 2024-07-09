@@ -1,0 +1,18 @@
+title;labels;keywords;gpt
+Demo;audit;auditapi,submittopaymentgateway,apiauditsget,auditinfo,catalog_service,int32,methodname,info,homepage,user_service,user,productname,productid,audit,application,orderdetailviewmodel,demo,addressinfo,shipinfoname,shipinfoviewmodel,audits,productviewmodel;
+Auth API;user;password,info,auth;
+eShopOnContainers - Basket HTTP API;cart;basketapi,basket,basketitem,productname,basketcheckout,customerbasket,int32,problemdetails,info,eshoponcontainers,cardsecuritynumber,cardholdername,additionalproperties,productid,cardnumber;
+Basket API;cart;int32,productname,basket,info,username,cardname,application,cartitems,zipcode,problemdetails;
+Carts and items;cart;carts,info,cart,cartitem,update,github,resources,mit,application;
+eShopOnContainers - Catalog HTTP API;catalog;catalogtypeid,catalogitemid,catalogitempaginateditemsviewmodel,catalogitem,catalog,catalogtypes,catalogtype,catalogbrands,catalogbrand,catalogbrandid,int32,microservice;
+Catalog API;catalog;int32,catalog,info,application,success,product,array;
+Catalogue resources;catalog;int32,list_,catalogue,imageurl,array,info,utf,charset,number;
+Demo;order;checkoutapi,submittopaymentgateway,int32,methodname,homepage,productname,catalog_service,addressinfo,apicheckoutpost,info,user_service,shipinfoname,user,orderdetailviewmodel,apicheckoutbyorderidprocesspost,demo,addressinfoid,text,shipinfoviewmodel,application,productid,orderviewmodel,order_service;
+Checkout API;order;checkoutordercommand,int32,checkout,info,array,cardnumber,zipcode,cardname;
+Demo;user;customerapi,submittopaymentgateway,catalog_service,int32,productname,apicustomersget,user_service,user,methodname,homepage,info,productid,apicustomerspost,application,apicustomersbyidget,addressinfo,apicustomersdelete,shipinfoname,customerid,customername,demo,servicename,customer_service;
+eShopOnContainers - Ordering HTTP API;order;orderingapi,ordering,ordernumber,orderitems,eshoponcontainers,orders,info,int32,order,shipordercommand,productname,createorderdraftcommand,zipcode,orderitemdto,service,orderitem,cardtypes;
+Demo;order;orderapi,apiordersget,int32,submittopaymentgateway,catalog_service,methodname,productname,info,homepage,user,addressinfo,productid,apiordersbyidget,user_service,orderdetailviewmodel,application,demo,shipinfoname,orderviewmodel,addressinfoid,array,shipinfoviewmodel;
+Orders;order;orderslist,orders,order,processing,totalpages,_embedded,charset,info,service,number,array,_links;
+Payment;payment;paymentauth,service,utf,github,info;
+Demo;payment;paymentapi,submittopaymentgateway,apipaymentsget,apipaymentsbypaymentidpayment,paymentviewmodel,payment_service,paymentid,paymentmethod,catalog_service,user,user_service;
+Demo;product;productapi,apiproductsget,apiproductsbyidget,productname,submittopaymentgateway,int32,productid,catalog_service,methodname,user,info,product,homepage,productviewmodel,user_service,application,demo,addressinfo,productprice,shipinfoname,success,shipinfoviewmodel;
